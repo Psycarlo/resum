@@ -44,7 +44,7 @@
       <NuxtImg
         src="background.png"
         alt="Mountain Background"
-        class="pointer-events-none absolute bottom-0 z-10 h-[480px] w-full object-cover lg:left-0 xl:object-bottom 2xl:object-center"
+        class="pointer-events-none absolute bottom-0 left-0 z-10 h-[480px] w-full object-cover xl:object-bottom 2xl:object-center"
       />
       <div
         class="flex flex-col items-center gap-3 py-10 sm:gap-6 lg:items-start"

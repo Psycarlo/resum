@@ -10,7 +10,9 @@ export default {
         mg: '890px',
         lg: '1024px',
         xl: '1280px',
-        '2xl': '1536px'
+        '2xl': '1536px',
+        'h-mg': { raw: '(max-height: 936px)' },
+        'h-xl': { raw: '(max-height: 1300px)' }
       },
       fontFamily: {
         brand: ['Gotham', 'sans-serif']

@@ -50,7 +50,7 @@
         class="flex flex-col items-center gap-3 py-10 sm:gap-6 lg:items-start"
       >
         <h1
-          class="text-center text-4xl font-black uppercase leading-none text-brand-secondary sm:text-5xl lg:text-left lg:text-8xl lg:leading-[0.8]"
+          class="h-mg:text-7xl text-center text-4xl font-black uppercase leading-none text-brand-secondary sm:text-5xl lg:text-left lg:text-8xl lg:leading-[0.8]"
         >
           Remigration <br />
           <span
@@ -101,10 +101,10 @@
       <NuxtImg
         src="plane.png"
         alt="Plane"
-        class="hidden w-2/3 max-w-[640px] lg:block"
+        class="h-xl:hidden hidden w-2/3 max-w-[640px] lg:block"
       />
       <div
-        class="flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%]"
+        class="h-xl:lg:-translate-y-[50%] z-50 flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%]"
       >
         <h2 class="text-3xl font-black text-brand-primary">Get your ticket</h2>
         <p class="text-sm text-brand-primary">

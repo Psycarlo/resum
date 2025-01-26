@@ -62,7 +62,7 @@ pnpm supabase:diff -f <migration-name>
 To push migrations to remote, run:
 
 ```bash
-npx supabase db push
+supabase db push
 ```
 
 ### Types
@@ -113,11 +113,19 @@ supabase secrets list
 
 ### Stripe
 
-Listen to stripe events with stripe-cli
+1. Login using the stripe-cli
+
+```bash
+stripe login
+```
+
+2. Listen to stripe events with stripe-cli
 
 ```bash
 stripe listen --forward-to http://127.0.0.1:54321/functions/v1/stripe-checkout-session-completed-webhook --events=checkout.session.completed
 ```
+
+3. Copy and paste the `whsec` into functions `.env.local`.
 
 ### Deploy
 

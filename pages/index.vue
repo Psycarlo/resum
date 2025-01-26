@@ -192,6 +192,7 @@
       </div>
     </div>
   </main>
+  <RSCheckoutSuccessModal v-model:open="checkoutSuccessModalOpen" />
 </template>
 
 <script lang="ts" setup>

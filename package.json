@@ -8,6 +8,7 @@
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare",
     "preview": "nuxt preview",
+    "supabase:diff": "supabase db diff",
     "supabase:gen-types": "supabase gen types --lang=typescript --local > types/database.ts",
     "supabase:start": "supabase start && supabase functions serve --env-file ./supabase/functions/.env.local"
   },

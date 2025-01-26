@@ -65,7 +65,8 @@ Deno.serve(async (req) => {
 
   await supabase.from('stripe_checkout_ticket_resum_25').insert({
     stripe_checkout: session.id,
-    email
+    email,
+    type
   })
 
   return new Response(JSON.stringify({ session: session.id }), {

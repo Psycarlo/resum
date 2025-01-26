@@ -44,7 +44,6 @@ Deno.serve(async (req) => {
   }
 
   const checkoutSession = event.data.object as Stripe.Checkout.Session
-  const customer = checkoutSession.customer as Stripe.Customer
 
   // ==========================
   // LOGIC FOR TICKETS RESUM 25
@@ -67,15 +66,17 @@ Deno.serve(async (req) => {
     .select('*')
     .eq('stripe_checkout', checkoutSession.id)
 
-  if (error || !data || !data[0])
+  if (error || !data || !data[0]) {
+    console.log(error, data)
     return new Response(JSON.stringify({ error: 'Checkout not found' }), {
       status: 400
     })
+  }
 
   const ticketCode = (Math.random() + 1).toString(36).substring(2).toUpperCase()
-  const fullTicketCode = `RESUM25-${ticketCode}`
-  const userEmail = customer.email
-  console.log(userEmail, '<<<')
+  const ticketType = data[0]['type'] as string
+  const fullTicketCode = `RESUM25-${ticketType.toUpperCase()}-${ticketCode}`
+  const userEmail = data[0]['email']
   const cost = checkoutSession.amount_total
     ? checkoutSession.amount_total / 100
     : 0

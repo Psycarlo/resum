@@ -50,7 +50,7 @@
         class="flex flex-col items-center gap-3 py-10 sm:gap-6 lg:items-start"
       >
         <h1
-          class="h-mg:text-7xl text-center text-4xl font-black uppercase leading-none text-brand-secondary sm:text-5xl lg:text-left lg:text-8xl lg:leading-[0.8]"
+          class="lg:h-mg:text-7xl text-center text-4xl font-black uppercase leading-none text-brand-secondary sm:text-5xl lg:text-left lg:text-8xl lg:leading-[0.8]"
         >
           Remigration <br />
           <span
@@ -177,6 +177,7 @@
             :disabled="!selectedTicket || !email || !isEmailValid"
             :loading="loadingCheckout"
             @click="handleCheckout"
+            class="mb-4 sm:mb-0"
           >
             Buy Now
           </RSButton>

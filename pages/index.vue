@@ -44,7 +44,7 @@
       <NuxtImg
         src="background.png"
         alt="Mountain Background"
-        class="absolute bottom-0 z-10 h-[480px] w-full object-cover lg:left-0 xl:object-bottom 2xl:object-center"
+        class="pointer-events-none absolute bottom-0 z-10 h-[480px] w-full object-cover lg:left-0 xl:object-bottom 2xl:object-center"
       />
       <div
         class="flex flex-col items-center gap-3 py-10 sm:gap-6 lg:items-start"
@@ -101,7 +101,7 @@
       <NuxtImg
         src="plane.png"
         alt="Plane"
-        class="h-xl:hidden hidden w-2/3 max-w-[640px] lg:block"
+        class="h-xl:hidden pointer-events-none hidden w-2/3 max-w-[640px] lg:block"
       />
       <div
         class="h-xl:lg:-translate-y-[50%] z-50 flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%]"

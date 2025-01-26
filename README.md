@@ -42,7 +42,7 @@ pnpm install
 Run supabase
 
 ```bash
-supabase start
+pnpm supabase:start
 ```
 
 Run the app
@@ -76,9 +76,9 @@ pnpm supabase:gen-types
 Use the `Database` type in the apps:
 
 ```ts
-import type { Database } from "../types/database";
+import type { Database } from '../types/database'
 
-const client = useSupabaseClient<Database>();
+const client = useSupabaseClient<Database>()
 ```
 
 ### Functions

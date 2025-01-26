@@ -37,11 +37,26 @@ export default defineNuxtConfig({
       ]
     }
   },
-  modules: ['@nuxt/fonts', '@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxt/fonts',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image',
+    'radix-vue/nuxt',
+    'vue-sonner/nuxt',
+    '@nuxtjs/supabase'
+  ],
   fonts: {
     defaults: {
       weights: [400, 500, 700, 900]
     }
+  },
+  runtimeConfig: {
+    public: {
+      STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY
+    }
+  },
+  supabase: {
+    redirect: false
   },
   devtools: { enabled: true }
 })

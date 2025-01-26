@@ -1,0 +1,9 @@
+- [ ] Add secrets
+- [ ] Sendgrid
+- [ ] FAQ
+- [ ] Socials
+- [ ] Sendgrid template
+- [ ] Deploy to vercel
+- [ ] Domain link
+- [ ] Sendgrid, verify domain
+- [ ] Desktop UI

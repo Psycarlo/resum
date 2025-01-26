@@ -1,9 +1,10 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import Stripe from 'npm:stripe@16.9.0'
 import { createClient } from 'jsr:@supabase/supabase-js@2'
+import { MailService } from 'npm:@sendgrid/mail@8.1.3'
 import { isLocal } from '../_shared/environment.ts'
 
-const TEMPLATE_ID = ''
+const TEMPLATE_ID = 'd-d8cbd561de384533abea5636c64c0fcf'
 
 Deno.serve(async (req) => {
   const STRIPE_SECRET_KEY = Deno.env.get('STRIPE_SECRET_KEY')
@@ -87,21 +88,33 @@ Deno.serve(async (req) => {
     code: fullTicketCode
   })
 
-  // const sendgridClient = new MailService()
-  // sendgridClient.setApiKey(SENDGRID_SECRET_KEY)
+  const sendgridClient = new MailService()
+  sendgridClient.setApiKey(SENDGRID_SECRET_KEY)
 
-  // const emails = [userEmail]
-  // if (!isLocal()) emails.push('todo')
+  const emails = [userEmail]
+  if (!isLocal()) emails.push('remigrationsummit@gmail.com')
 
-  // await sendgridClient.send({
-  //   from: 'todo',
-  //   to: emails,
-  //   templateId: TEMPLATE_ID,
-  //   dynamicTemplateData: {
-  //     price: `${cost}€`,
-  //     code: fullTicketCode
-  //   }
-  // })
+  try {
+    await sendgridClient.send({
+      from: 'remigrationsummit@gmail.com',
+      to: emails,
+      templateId: TEMPLATE_ID,
+      dynamicTemplateData: {
+        type: ticketType.toUpperCase(),
+        price: `${cost}€`,
+        code: fullTicketCode
+      }
+    })
+
+    await supabase
+      .from('tickets_resum_25')
+      .update({
+        invoice_sent_at: new Date().toISOString()
+      })
+      .eq('checkout_id', checkoutSession.id)
+  } catch (error) {
+    return new Response(error, { status: 400 })
+  }
 
   return new Response(JSON.stringify({ ok: true }), { status: 200 })
 })

@@ -1,9 +1,9 @@
 <template>
-  <header class="flex h-12 bg-[#DCF4FF] px-8 py-4 lg:px-16">
+  <header class="flex h-20 bg-[#DCF4FF] px-8 py-4 lg:px-16">
     <nav
       class="mx-auto flex w-full max-w-screen-lg items-center justify-between"
     >
-      <span class="text-lg font-black text-brand-secondary">RE</span>
+      <NuxtImg src="logo.png" alt="Logo" class="h-full" />
       <ul class="flex items-center gap-2.5">
         <li>
           <button
@@ -36,7 +36,7 @@
     </nav>
   </header>
   <main
-    class="relative flex min-h-[calc(100vh-3rem)] flex-col items-center bg-gradient-to-b from-[#DCF4FF] to-white px-8 lg:items-start lg:px-16"
+    class="relative flex min-h-[calc(100vh-5rem)] flex-col items-center bg-gradient-to-b from-[#DCF4FF] to-white px-8 lg:items-start lg:px-16"
   >
     <div
       class="flex w-full flex-col xl:mx-auto xl:max-w-screen-lg xl:items-start"

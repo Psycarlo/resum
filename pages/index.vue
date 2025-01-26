@@ -104,7 +104,7 @@
         class="hidden w-2/3 max-w-[640px] lg:block"
       />
       <div
-        class="flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6"
+        class="flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%]"
       >
         <h2 class="text-3xl font-black text-brand-primary">Get your ticket</h2>
         <p class="text-sm text-brand-primary">

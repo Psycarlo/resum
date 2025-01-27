@@ -13,12 +13,10 @@
           </button>
         </li>
         <li>
-          <NuxtLink to="#" target="_blank">
-            <YoutubeIcon />
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="#" target="_blank">
+          <NuxtLink
+            to="https://www.instagram.com/remigrationsummit/profilecard/?igsh=angxdXMxZDVhbTFu"
+            target="_blank"
+          >
             <InstagramIcon />
           </NuxtLink>
         </li>
@@ -28,7 +26,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="#" target="_blank">
+          <NuxtLink to="https://t.me/Resum25" target="_blank">
             <TelegramIcon />
           </NuxtLink>
         </li>
@@ -50,7 +48,7 @@
         class="flex flex-col items-center gap-3 py-10 sm:gap-6 lg:items-start"
       >
         <h1
-          class="lg:h-mg:text-7xl text-center text-4xl font-black uppercase leading-none text-brand-secondary sm:text-5xl lg:text-left lg:text-8xl lg:leading-[0.8]"
+          class="text-center text-4xl font-black uppercase leading-none text-brand-secondary sm:text-5xl lg:text-left lg:text-8xl lg:leading-[0.8] lg:h-mg:text-7xl"
         >
           Remigration <br />
           <span
@@ -101,10 +99,10 @@
       <NuxtImg
         src="plane.png"
         alt="Plane"
-        class="h-xl:hidden pointer-events-none hidden w-2/3 max-w-[640px] lg:block"
+        class="pointer-events-none hidden w-2/3 max-w-[640px] lg:block h-xl:hidden"
       />
       <div
-        class="h-xl:lg:-translate-y-[50%] z-50 flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%]"
+        class="z-50 flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%] h-xl:lg:-translate-y-[50%]"
       >
         <h2 class="text-3xl font-black text-brand-primary">Get your ticket</h2>
         <p class="text-sm text-brand-primary">

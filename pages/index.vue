@@ -8,6 +8,7 @@
         <li>
           <button
             class="font-medium text-brand-primary transition-colors duration-200 hover:text-brand-secondary"
+            @click="faqModalOpen = true"
           >
             FAQ
           </button>
@@ -80,7 +81,7 @@
             <span
               class="font-medium leading-none text-brand-primary lg:text-lg lg:font-bold"
             >
-              Italy
+              Italy, Milan
             </span>
             <span class="text-sm font-medium text-brand-secondary lg:text-base">
               May 17th
@@ -192,6 +193,7 @@
     </div>
   </main>
   <RSCheckoutSuccessModal v-model:open="checkoutSuccessModalOpen" />
+  <RSFAQModal v-model:open="faqModalOpen" />
 </template>
 
 <script lang="ts" setup>

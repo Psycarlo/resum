@@ -172,17 +172,14 @@
             ]"
             placeholder="Your email..."
           />
-          <RSButton disabled class="mb-4 sm:mb-0">
-            Purchase temporarily disabled
-          </RSButton>
-          <!-- <RSButton
+          <RSButton
             :disabled="!selectedTicket || !email || !isEmailValid"
             :loading="loadingCheckout"
             @click="handleCheckout"
             class="mb-4 sm:mb-0"
           >
             Buy Now
-          </RSButton> -->
+          </RSButton>
           <NuxtLink
             to="https://www.givesendgo.com/resum25"
             target="_blank"

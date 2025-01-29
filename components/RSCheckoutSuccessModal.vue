@@ -20,7 +20,9 @@
         <DialogDescription class="text-center text-brand-primary">
           You will receive an <span class="font-medium">email</span> <br />
           in your inbox shortly. Check your
-          <span class="font-medium">spam</span> folder.
+          <span class="font-medium">spam</span> folder. If you don't receive an
+          email, contact
+          <span class="font-medium">remigrationsummit@gmail.com</span>
         </DialogDescription>
       </DialogContent>
     </DialogPortal>

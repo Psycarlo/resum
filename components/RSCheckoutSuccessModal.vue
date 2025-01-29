@@ -2,10 +2,10 @@
   <DialogRoot>
     <DialogPortal>
       <DialogOverlay
-        class="data-[state=open]:animate-overlayShow fixed inset-0 z-30 bg-black/40"
+        class="fixed inset-0 z-30 bg-black/40 data-[state=open]:animate-overlayShow"
       />
       <DialogContent
-        class="data-[state=open]:animate-contentShow fixed left-1/2 top-1/2 z-[100] flex max-h-[85vh] w-[90vw] max-w-[450px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 rounded-xl bg-gradient-to-b from-[#DCF4FF] to-white p-8 font-brand shadow-md focus:outline-none"
+        class="fixed left-1/2 top-1/2 z-[100] flex max-h-[85vh] w-[90vw] max-w-[450px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 rounded-xl bg-gradient-to-b from-[#DCF4FF] to-white p-8 font-brand shadow-md focus:outline-none data-[state=open]:animate-contentShow"
       >
         <DialogClose as-child>
           <button>
@@ -19,7 +19,8 @@
         </DialogTitle>
         <DialogDescription class="text-center text-brand-primary">
           You will receive an <span class="font-medium">email</span> <br />
-          in your inbox shortly.
+          in your inbox shortly. Check your
+          <span class="font-medium">spam</span> folder.
         </DialogDescription>
       </DialogContent>
     </DialogPortal>

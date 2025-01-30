@@ -103,7 +103,7 @@
         class="pointer-events-none hidden w-2/3 max-w-[640px] lg:block h-xl:hidden"
       />
       <div
-        class="z-50 flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[80%] h-xl:lg:-translate-y-[50%]"
+        class="z-50 flex w-full flex-col items-center lg:absolute lg:right-[calc((100vw-960px)/2)] lg:top-1/2 lg:w-[424px] lg:-translate-y-[70%] lg:rounded-xl lg:bg-brand-secondary/10 lg:px-8 lg:py-6 xl:-translate-y-[76%] h-xl:lg:-translate-y-[50%]"
       >
         <h2 class="text-3xl font-black text-brand-primary">Get your ticket</h2>
         <p class="text-sm text-brand-primary">
@@ -127,9 +127,9 @@
             </div>
             <div class="flex flex-col items-start gap-1">
               <span class="text-brand-primary">- Admission to the event</span>
-              <span class="text-brand-primary"
-                >- Access to the coffee break</span
-              >
+              <span class="text-brand-primary">
+                - Access to the coffee break
+              </span>
             </div>
           </button>
           <button
@@ -162,6 +162,17 @@
             </div>
           </button>
           <input
+            type="text"
+            v-model="fullName"
+            class="rounded-xl border-[3px] bg-[#E6F1F8] bg-opacity-90 px-4 py-3 text-brand-primary outline-none"
+            :class="[
+              isFullNameValid
+                ? 'border-brand-primary'
+                : 'border-brand-primary/20 hover:border-brand-primary/50'
+            ]"
+            placeholder="Your full name..."
+          />
+          <input
             type="email"
             v-model="email"
             class="rounded-xl border-[3px] bg-[#E6F1F8] bg-opacity-90 px-4 py-3 text-brand-primary outline-none"
@@ -173,7 +184,13 @@
             placeholder="Your email..."
           />
           <RSButton
-            :disabled="!selectedTicket || !email || !isEmailValid"
+            :disabled="
+              !selectedTicket ||
+              !fullName ||
+              !isFullNameValid ||
+              !email ||
+              !isEmailValid
+            "
             :loading="loadingCheckout"
             @click="handleCheckout"
             class="mb-4 sm:mb-0"
@@ -207,9 +224,14 @@
 
   const selectedTicket = ref<'general' | 'vip'>()
   const email = ref('')
+  const fullName = ref('')
 
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const isEmailValid = computed(() => emailPattern.test(email.value))
+
+  const isFullNameValid = computed(
+    () => fullName.value.trim().split(/\s+/).length >= 2
+  )
 
   const faqModalOpen = ref(false)
   const checkoutSuccessModalOpen = ref(route.query.s === 'success')
@@ -224,7 +246,8 @@
     const { data, error } = await client.functions.invoke('stripe-checkout', {
       body: JSON.stringify({
         type: selectedTicket.value,
-        email: email.value
+        email: email.value,
+        fullName: fullName.value
       })
     })
 

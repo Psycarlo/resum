@@ -8,7 +8,7 @@ Deno.serve(async (req) => {
     return new Response('ok', { headers: corsHeaders })
   }
 
-  const { type, email } = await req.json()
+  const { type, email, fullName } = await req.json()
 
   const STRIPE_SECRET_KEY = Deno.env.get('STRIPE_SECRET_KEY')
   const WEBSITE_URL = Deno.env.get('WEBSITE_URL')
@@ -22,7 +22,9 @@ Deno.serve(async (req) => {
     !WEBSITE_URL ||
     (type !== 'general' && type !== 'vip') ||
     !email ||
-    typeof email !== 'string'
+    typeof email !== 'string' ||
+    !fullName ||
+    typeof fullName !== 'string'
   )
     return new Response(JSON.stringify({ error: 'Erro ao inicializar' }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -65,6 +67,7 @@ Deno.serve(async (req) => {
   await supabase.from('stripe_checkout_ticket_resum_25').insert({
     stripe_checkout: session.id,
     email,
+    full_name: fullName,
     type
   })
 

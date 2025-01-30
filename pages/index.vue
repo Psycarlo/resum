@@ -230,7 +230,7 @@
   const isEmailValid = computed(() => emailPattern.test(email.value))
 
   const isFullNameValid = computed(
-    () => fullName.value.trim().split(/\s+/).length >= 2
+    () => fullName.value.trim().split(/\s+/).length >= 1
   )
 
   const faqModalOpen = ref(false)

@@ -20,7 +20,7 @@ Deno.serve(async (req) => {
     !SUPABASE_URL ||
     !SUPABASE_SERVICE_ROLE_KEY ||
     !WEBSITE_URL ||
-    (type !== 'general' && type !== 'vip') ||
+    (type !== 'general' && type !== 'vip' && type !== 'premium') ||
     !email ||
     typeof email !== 'string' ||
     !fullName ||
@@ -37,11 +37,14 @@ Deno.serve(async (req) => {
     apiVersion: '2024-06-20'
   })
 
-  const ticketAmount = type === 'general' ? 25 * 100 : 100 * 100
+  const ticketAmount =
+    type === 'general' ? 25 * 100 : type === 'vip' ? 100 * 100 : 200 * 100
   const ticketName =
     type === 'general'
       ? 'Remigration Summit 2025 | General Ticket'
-      : 'Remigration Summit 2025 | VIP Ticket'
+      : type === 'vip'
+        ? 'Remigration Summit 2025 | VIP Ticket'
+        : 'Remigration Summit 2025 | PREMIUM Ticket'
 
   const session = await stripe.checkout.sessions.create({
     customer_email: email,

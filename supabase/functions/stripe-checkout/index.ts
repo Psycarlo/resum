@@ -38,7 +38,7 @@ Deno.serve(async (req) => {
   })
 
   const ticketAmount =
-    type === 'general' ? 25 * 100 : type === 'vip' ? 100 * 100 : 200 * 100
+    type === 'general' ? 40 * 100 : type === 'vip' ? 100 * 100 : 200 * 100
   const ticketName =
     type === 'general'
       ? 'Remigration Summit 2025 | General Ticket'

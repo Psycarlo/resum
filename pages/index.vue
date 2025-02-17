@@ -62,10 +62,10 @@
             here.
           </p>
           <p class="hidden text-brand-primary lg:inline-block">
-            Finally <span class="font-medium">the word</span> that shaped the
-            political arena around <br />
-            <span class="font-medium">immigration</span> in 2024 will be
-            explained along with the <br />
+            Finally <span class="font-medium">the term</span> that shaped the
+            political debate around <br />
+            <span class="font-medium">immigration</span> in 2024 the last few
+            years will be explained along with the <br />
             concept it brings with it.
           </p>
         </div>
@@ -121,7 +121,7 @@
               <span class="text-xl font-bold text-brand-primary">
                 General Ticket
               </span>
-              <span class="text-xl font-bold text-brand-primary">25€</span>
+              <span class="text-xl font-bold text-brand-primary">40€</span>
             </div>
             <div class="flex flex-col items-start gap-1">
               <span class="text-brand-primary">- Admission to the event</span>

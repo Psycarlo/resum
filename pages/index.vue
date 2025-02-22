@@ -174,7 +174,7 @@
                 <span class="whitespace-nowrap">PREMIUM Ticket</span>
                 <PremiumIcon class="!h-6 !w-6" />
               </div>
-              <span class="text-xl font-bold text-brand-primary">200€</span>
+              <span class="text-xl font-bold text-brand-primary">250€</span>
             </div>
             <div class="flex flex-col items-start gap-1">
               <span class="text-brand-primary">- Admission to the event</span>

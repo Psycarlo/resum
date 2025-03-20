@@ -68,6 +68,7 @@
             years will be explained along with the <br />
             concept it brings with it.
           </p>
+          <p class="text-center text-brand-primary lg:text-left font-medium">May 17th, 2025</p>
         </div>
         <!-- <div class="flex items-center gap-2">
           <NuxtImg

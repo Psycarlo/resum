@@ -68,7 +68,9 @@
             years will be explained along with the <br />
             concept it brings with it.
           </p>
-          <p class="text-center text-brand-primary lg:text-left font-medium">May 17th, 2025</p>
+          <p class="text-center font-medium text-brand-primary lg:text-left">
+            May 17th, 2025
+          </p>
         </div>
         <!-- <div class="flex items-center gap-2">
           <NuxtImg
@@ -131,14 +133,13 @@
               </span>
             </div>
           </button>
-          <button
-            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-[#E6F1F8] bg-opacity-90 px-4 py-3"
+          <div
+            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-red-200 bg-opacity-90 px-4 py-3"
             :class="[
               selectedTicket === 'vip'
                 ? 'border-brand-primary'
-                : 'border-brand-primary/20 hover:border-brand-primary/50'
+                : 'border-brand-primary/20'
             ]"
-            @click="selectedTicket = 'vip'"
           >
             <div class="flex w-full items-center justify-between">
               <div
@@ -147,6 +148,9 @@
                 <span class="whitespace-nowrap">VIP Ticket</span>
                 <VipIcon class="!h-6 !w-6" />
               </div>
+              <span class="text-sm font-bold uppercase text-red-600">
+                SOLD OUT
+              </span>
               <span class="text-xl font-bold text-brand-primary">100€</span>
             </div>
             <div class="flex flex-col items-start gap-1">
@@ -158,15 +162,14 @@
                 - Access to dinner & after party
               </span>
             </div>
-          </button>
-          <button
-            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-[#E6F1F8] bg-opacity-90 px-4 py-3"
+          </div>
+          <div
+            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-red-200 bg-opacity-90 px-4 py-3"
             :class="[
               selectedTicket === 'premium'
                 ? 'border-brand-primary'
-                : 'border-brand-primary/20 hover:border-brand-primary/50'
+                : 'border-brand-primary/20'
             ]"
-            @click="selectedTicket = 'premium'"
           >
             <div class="flex w-full items-center justify-between">
               <div
@@ -175,6 +178,9 @@
                 <span class="whitespace-nowrap">PREMIUM Ticket</span>
                 <PremiumIcon class="!h-6 !w-6" />
               </div>
+              <span class="text-sm font-bold uppercase text-red-600">
+                SOLD OUT
+              </span>
               <span class="text-xl font-bold text-brand-primary">250€</span>
             </div>
             <div class="flex flex-col items-start gap-1">
@@ -187,7 +193,7 @@
               </span>
               <span class="text-left text-brand-primary"> - Hotel room </span>
             </div>
-          </button>
+          </div>
           <input
             type="text"
             v-model="fullName"
@@ -241,7 +247,7 @@
   const route = useRoute()
   const { $toast } = useNuxtApp()
 
-  const selectedTicket = ref<'general' | 'vip' | 'premium'>()
+  const selectedTicket = ref<'general' | 'vip' | 'premium'>('general')
   const email = ref('')
   const fullName = ref('')
 

@@ -71,6 +71,9 @@
           <p class="text-center font-medium text-brand-primary lg:text-left">
             May 17th, 2025
           </p>
+          <p class="text-center text-sm text-brand-primary lg:text-left">
+            2PM - 7:30PM
+          </p>
         </div>
         <!-- <div class="flex items-center gap-2">
           <NuxtImg

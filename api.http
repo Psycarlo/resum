@@ -1,0 +1,23 @@
+# RESUM
+
+## Give Ticket REAL
+### Give a free resum ticket to a person
+POST https://nwjfrdxarxvogcjhyzng.supabase.co/functions/v1/give-ticket
+Content-Type: application/json
+
+{
+    "password": "resum2025!remigration",
+    "ticket": "premium",
+    "email": "psycarlo1@gmail.com"
+}
+
+## Give Ticket TEST
+### Give a free resum ticket to a person
+POST http://127.0.0.1:54321/functions/v1/give-ticket
+Content-Type: application/json
+
+{
+    "password": "resum2025!remigration",
+    "ticket": "premium",
+    "email": "psycarlo1@gmail.com"
+}

@@ -166,13 +166,14 @@
               </span>
             </div>
           </div>
-          <div
-            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-red-200 bg-opacity-90 px-4 py-3"
+          <button
+            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-[#E6F1F8] bg-opacity-90 px-4 py-3"
             :class="[
               selectedTicket === 'premium'
                 ? 'border-brand-primary'
                 : 'border-brand-primary/20'
             ]"
+            @click="selectedTicket = 'premium'"
           >
             <div class="flex w-full items-center justify-between">
               <div
@@ -181,9 +182,9 @@
                 <span class="whitespace-nowrap">PREMIUM Ticket</span>
                 <PremiumIcon class="!h-6 !w-6" />
               </div>
-              <span class="text-sm font-bold uppercase text-red-600">
+              <!-- <span class="text-sm font-bold uppercase text-red-600">
                 SOLD OUT
-              </span>
+              </span> -->
               <span class="text-xl font-bold text-brand-primary">250€</span>
             </div>
             <div class="flex flex-col items-start gap-1">
@@ -196,7 +197,7 @@
               </span>
               <span class="text-left text-brand-primary"> - Hotel room </span>
             </div>
-          </div>
+          </button>
           <input
             type="text"
             v-model="fullName"

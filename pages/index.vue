@@ -69,7 +69,7 @@
             concept it brings with it.
           </p>
           <p class="text-center font-medium text-brand-primary lg:text-left">
-            May 17th, 2025
+            May 17th, 2025 | Milan, Italy
           </p>
           <p class="text-center text-sm text-brand-primary lg:text-left">
             2PM - 7:30PM

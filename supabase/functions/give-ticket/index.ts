@@ -18,21 +18,24 @@ Deno.serve(async (req) => {
   const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
 
   if (!SENDGRID_SECRET_KEY || !SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY)
-    return new Response(JSON.stringify({ error: 'Erro ao inicializar' }), {
-      headers: { 'Content-Type': 'application/json' },
-      status: 500
-    })
-  const ticketTypes = ['geral', 'vip', 'premium']
+    return new Response(
+      JSON.stringify({ error: 'Missing environment variables' }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+        status: 500
+      }
+    )
+  const ticketTypes = ['general', 'vip', 'premium']
 
   const { password, email, ticket } = await req.json()
 
   if (password !== PASSWORD)
-    return new Response(JSON.stringify({ error: 'Sem permissões' }), {
+    return new Response(JSON.stringify({ error: 'No permissions' }), {
       status: 401
     })
 
   if (!ticketTypes.includes(ticket))
-    return new Response(JSON.stringify({ error: 'Erro ao inicializar' }), {
+    return new Response(JSON.stringify({ error: 'Invalid ticket type' }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 500
     })
@@ -44,7 +47,7 @@ Deno.serve(async (req) => {
   const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
   await supabase.from('manual_checkout_ticket_resum_25').insert({
     email,
-    ticket_code: fullTicketCode,
+    ticket_code: fullTicketCode
   })
   await supabase.from('tickets_resum_25').insert({
     checkout_id: 'manual',

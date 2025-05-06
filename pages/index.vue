@@ -114,18 +114,15 @@
           Please select the ticket of your choice
         </p>
         <div class="z-20 mt-4 flex w-full max-w-[480px] flex-col gap-3">
-          <button
-            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-[#E6F1F8] bg-opacity-90 px-4 py-3"
-            :class="[
-              selectedTicket === 'general'
-                ? 'border-brand-primary'
-                : 'border-brand-primary/20 hover:border-brand-primary/50'
-            ]"
-            @click="selectedTicket = 'general'"
+          <div
+            class="flex w-full flex-col gap-2 rounded-lg border-[3px] border-brand-primary/20 bg-red-200 bg-opacity-90 px-4 py-3"
           >
             <div class="flex w-full items-center justify-between">
               <span class="text-xl font-bold text-brand-primary">
                 General Ticket
+              </span>
+              <span class="text-sm font-bold uppercase text-red-600">
+                SOLD OUT
               </span>
               <span class="text-xl font-bold text-brand-primary">40€</span>
             </div>
@@ -135,14 +132,9 @@
                 - Access to the coffee break
               </span>
             </div>
-          </button>
+          </div>
           <div
-            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-red-200 bg-opacity-90 px-4 py-3"
-            :class="[
-              selectedTicket === 'vip'
-                ? 'border-brand-primary'
-                : 'border-brand-primary/20'
-            ]"
+            class="flex w-full flex-col gap-2 rounded-lg border-[3px] border-brand-primary/20 bg-red-200 bg-opacity-90 px-4 py-3"
           >
             <div class="flex w-full items-center justify-between">
               <div
@@ -167,12 +159,7 @@
             </div>
           </div>
           <div
-            class="flex w-full flex-col gap-2 rounded-lg border-[3px] bg-red-200 bg-opacity-90 px-4 py-3"
-            :class="[
-              selectedTicket === 'premium'
-                ? 'border-brand-primary'
-                : 'border-brand-primary/20'
-            ]"
+            class="flex w-full flex-col gap-2 rounded-lg border-[3px] border-brand-primary/20 bg-red-200 bg-opacity-90 px-4 py-3"
           >
             <div class="flex w-full items-center justify-between">
               <div
@@ -220,15 +207,8 @@
             placeholder="Your email..."
           />
           <RSButton
-            :disabled="
-              !selectedTicket ||
-              !fullName ||
-              !isFullNameValid ||
-              !email ||
-              !isEmailValid
-            "
+            :disabled="true"
             :loading="loadingCheckout"
-            @click="handleCheckout"
             class="mb-4 sm:mb-0"
           >
             Buy Now
@@ -243,14 +223,14 @@
 
 <script lang="ts" setup>
   import type { Database } from '@/types/database'
-  import { loadStripe } from '@stripe/stripe-js'
+  // import { loadStripe } from '@stripe/stripe-js'
 
-  const client = useSupabaseClient<Database>()
-  const runtimeConfig = useRuntimeConfig()
+  // const client = useSupabaseClient<Database>()
+  // const runtimeConfig = useRuntimeConfig()
   const route = useRoute()
-  const { $toast } = useNuxtApp()
+  // const { $toast } = useNuxtApp()
 
-  const selectedTicket = ref<'general' | 'vip' | 'premium'>('general')
+  // const selectedTicket = ref<'general' | 'vip' | 'premium'>('general')
   const email = ref('')
   const fullName = ref('')
 
@@ -269,37 +249,37 @@
 
   const loadingCheckout = ref(false)
 
-  async function handleCheckout() {
-    if (!selectedTicket.value || !email.value) return
+  // async function handleCheckout() {
+  //   if (!selectedTicket.value || !email.value) return
 
-    loadingCheckout.value = true
+  //   loadingCheckout.value = true
 
-    const { data, error } = await client.functions.invoke('stripe-checkout', {
-      body: JSON.stringify({
-        type: selectedTicket.value,
-        email: email.value,
-        fullName: fullName.value
-      })
-    })
+  //   const { data, error } = await client.functions.invoke('stripe-checkout', {
+  //     body: JSON.stringify({
+  //       type: selectedTicket.value,
+  //       email: email.value,
+  //       fullName: fullName.value
+  //     })
+  //   })
 
-    if (error) {
-      console.log(error)
-      $toast.error('Error loading. Try again later.')
-      loadingCheckout.value = false
-      return
-    }
+  //   if (error) {
+  //     console.log(error)
+  //     $toast.error('Error loading. Try again later.')
+  //     loadingCheckout.value = false
+  //     return
+  //   }
 
-    try {
-      const stripe = await loadStripe(
-        runtimeConfig.public.STRIPE_PUBLISHABLE_KEY
-      )
+  //   try {
+  //     const stripe = await loadStripe(
+  //       runtimeConfig.public.STRIPE_PUBLISHABLE_KEY
+  //     )
 
-      stripe?.redirectToCheckout({ sessionId: data.session })
-    } catch {
-      console.log(error)
-      $toast.error('Error loading. Try again later.')
-    } finally {
-      loadingCheckout.value = false
-    }
-  }
+  //     stripe?.redirectToCheckout({ sessionId: data.session })
+  //   } catch {
+  //     console.log(error)
+  //     $toast.error('Error loading. Try again later.')
+  //   } finally {
+  //     loadingCheckout.value = false
+  //   }
+  // }
 </script>

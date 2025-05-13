@@ -100,7 +100,7 @@
           Donate here
           <AnimatedChevron />
         </NuxtLink>
-        <p class="hidden text-brand-primary lg:inline-block">
+        <p class="text-center text-brand-primary">
           Official and only email:
           <a href="mailto:remigrationsummit@gmail.com" class="font-medium"
             >remigrationsummit@gmail.com</a

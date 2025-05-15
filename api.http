@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
     "password": "resum2025!remigration",
-    "ticket": "premium",
+    "ticket": "general",
     "email": "psycarlo1@gmail.com"
 }
 
@@ -21,3 +21,10 @@ Content-Type: application/json
     "ticket": "premium",
     "email": "psycarlo1@gmail.com"
 }
+
+## Send Email
+### Send Emails
+POST http://127.0.0.1:54321/functions/v1/send-email
+Content-Type: application/json
+
+{}

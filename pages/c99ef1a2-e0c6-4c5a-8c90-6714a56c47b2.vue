@@ -72,7 +72,7 @@
             May 17th, 2025 | Milan, Italy
           </p>
           <p class="text-center text-sm text-brand-primary lg:text-left">
-            2PM - 7:30PM
+            9AM - 2PM
           </p>
         </div>
         <!-- <div class="flex items-center gap-2">

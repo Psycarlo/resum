@@ -96,7 +96,10 @@ Deno.serve(async (req) => {
 
   try {
     await sendgridClient.send({
-      from: 'remigrationsummit@gmail.com',
+      from: {
+        email: 'contact@remigrationsummit.com',
+        name: 'Remigration Summit'
+      },
       to: emails,
       templateId: TEMPLATE_ID,
       dynamicTemplateData: {

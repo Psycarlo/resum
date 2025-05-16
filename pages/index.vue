@@ -100,12 +100,17 @@
           Donate here
           <AnimatedChevron />
         </NuxtLink>
-        <p class="text-center text-brand-primary">
-          Official and only email:
+        <div
+          class="flex flex-col gap-1 text-center text-brand-primary lg:text-left"
+        >
+          Official and only emails:
           <a href="mailto:remigrationsummit@gmail.com" class="font-medium"
             >remigrationsummit@gmail.com</a
           >
-        </p>
+          <a href="contact@remigrationsummit.com" class="font-medium"
+            >contact@remigrationsummit.com</a
+          >
+        </div>
       </div>
       <NuxtImg
         src="plane.png"

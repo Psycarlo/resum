@@ -121,14 +121,8 @@
         class="z-50 mb-4 flex w-full flex-col items-center bg-white bg-opacity-90 px-6 py-8 lg:rounded-xl"
       >
         <h2 class="pb-3 text-3xl font-black text-brand-primary">
-          Resum will have a livestream!
+          Event is over
         </h2>
-        <a
-          href="https://watch.castr.io/PphuS37IWNmdGwMwq5HF/stream/bF3rosTJwmVGGsbl3pbn"
-          target="_blank"
-          class="rounded-md bg-brand-primary px-6 py-3 font-medium text-white"
-          >Watch the livestream</a
-        >
         <!-- <p class="text-sm text-brand-primary">
           Please select the ticket of your choice
         </p> -->

@@ -1,11 +1,12 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 
 import { createClient } from 'jsr:@supabase/supabase-js@2'
-import { corsHeaders } from '../_shared/cors.ts'
 import { MailService } from 'npm:@sendgrid/mail@8.1.3'
+import QRCode from 'npm:qrcode'
+import { corsHeaders } from '../_shared/cors.ts'
 
 const PASSWORD = 'resum2025!remigration'
-const TEMPLATE_ID = 'd-58d0ddd5c9204e309aa08fe696018049'
+const TEMPLATE_ID = 'd-6d45cce525cc4068ba56a3334bb65eda'
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -92,35 +93,46 @@ Deno.serve(async (req) => {
     }
   }
 
-  const distinctEmails = [
-    ...new Set(finalTickets.map((ticket) => ticket.email))
-  ]
+  let sentTo = 0
 
-  const emails: string[] = distinctEmails
-
-  for (const email of emails) {
+  for (const ticket of finalTickets) {
     try {
+      const qrcodeBase64 = await QRCode.toDataURL(ticket.code)
+      const pngImageData = qrcodeBase64.split(',')[1] as string
+
       await sendgridClient.send({
         from: {
           email: 'contact@remigrationsummit.com',
           name: 'Remigration Summit'
         },
-        to: email,
+        to: ticket.email,
         // bcc: emails,
-        templateId: TEMPLATE_ID
+        templateId: TEMPLATE_ID,
+        attachments: [
+          {
+            content: pngImageData,
+            filename: 'ticket.png',
+            type: 'image/png',
+            disposition: 'attachment'
+          }
+        ]
       })
+
+      await supabase
+        .from('tickets_resum_25')
+        .update({ qr_code_sent_at: new Date().toISOString() })
+        .eq('code', ticket.code)
+
+      sentTo = sentTo + 1
     } catch (error) {
-      return new Response(error, {
+      return new Response(JSON.stringify({ error, ticket: ticket.id }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 400
       })
     }
   }
 
-  return new Response(
-    JSON.stringify({ ok: true, to: emails, amount: distinctEmails.length }),
-    {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-    }
-  )
+  return new Response(JSON.stringify({ ok: true, amount, sentTo }), {
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+  })
 })
